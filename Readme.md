@@ -1,6 +1,5 @@
 # Pure DI
-`Pure DI` is a simple yet powerful dependency injection framework, that will help you connect your components together 
-Main features:
+Features:
 * lightweight - no external dependencies (only `typing_extensions`)
 * based on type hints - no configuration required, less boilerplate   
 * pytest integration - see [#Test](#Test) section, writing unit tests was never so easy!
@@ -22,7 +21,6 @@ import ...
 @dataclass
 class Settings:
     db_uri: str
-
 
 @dataclass
 class Database:
