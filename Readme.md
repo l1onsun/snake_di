@@ -1,10 +1,15 @@
 # Pure DI
-Features:
-* lightweight - no external dependencies (only `typing_extensions`)
-* based on type hints - no configuration required, less boilerplate   
-* pytest integration - see [#Test](#Test) section, writing unit tests was never so easy!
-* `yeild` powered - just `yeild` your component and then write closing steps.
-* async support - sometimes we need `await` something in build process.
+![test](https://github.com/lionsoon/pure_di/actions/workflows/nox-test.yml/badge.svg)
+![pypi](https://img.shields.io/pypi/v/pure-di?color=%2334D058)
+![python](https://img.shields.io/pypi/pyversions/pure-di.svg?color=%2334D058)
+
+**Source Code**: https://github.com/lionsoon/pure_di  
+**Features**:
+* Lightweight - no external dependencies (only `typing_extensions`)
+* Based on type hints - no configuration required, less boilerplate   
+* Pytest integration - writing unit tests was never so easy!
+* `yeild` powered - just `yeild` your component and then write closing steps
+* Async support - sometimes we need `await` something in build process
 
 ### Install
 ```commandline
@@ -34,12 +39,11 @@ class Application:
     async def run(self): ...
 
 ```
-The main concept in `pure_di` is `Provider` (and `AsyncProvider` if we need async), 
-witch contains rules on how to construct components. 
-Rules (or factories) are callables, with type annotated arguments. They can be included to the provider using `provider.include_factory` method.
-Factory return type should be specified using either by return annotation, either by setting service_type argument. More details about providers see [#Providers](#Providers)  
+The main concept of `pure_di` is `Provider` (and `AsyncProvider` if we need async).  
+Providers consist of factories - callables that build components. Factories are included to the provider using `provider.include_factory` method.  
+All factory arguments should be annotated. And return type should be specified either by return annotation, or by `service_type` argument (see example below).  
 
-Let's create an AsyncProvider in `provider.py` file:
+Let's create an `AsyncProvider` for our services in `provider.py` file:
 
 ```python
 # provider.py
@@ -67,7 +71,7 @@ async def provide_engine(settings: Settings):
 provider.include_factory(Database, service_type=Database)
 provider.include_factory(Application, service_type=Application)
 ```
-Now in `main.py` we can use `provider.build_async` to construct `Container`. 
+Now in `main.py` we can use `provider.build_async` method to construct `Container`. 
 `Container` is similar to dict, where keys are services types, and values are services. 
 It also contains `container.partial_solve` method that works similar to `functools.partial` and solves those arguments whose types it contains.
 ```python
