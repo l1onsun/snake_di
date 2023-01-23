@@ -8,7 +8,7 @@ from example.services import (
     Settings,
     UserManager,
 )
-from pure_di import AsyncProvider, Provider
+from snake_di import AsyncProvider, Provider
 
 provider = Provider()
 

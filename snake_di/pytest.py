@@ -2,8 +2,8 @@ import functools
 import inspect
 from typing import Callable
 
-from pure_di import AsyncProvider, Provider
-from pure_di._provider import _BaseProvider
+from snake_di import AsyncProvider, Provider
+from snake_di._provider import _BaseProvider
 
 
 def pytest_provide(provider: Provider):

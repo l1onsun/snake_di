@@ -1,6 +1,6 @@
 import pytest
 
-from pure_di import AsyncProvider, Provider
+from snake_di import AsyncProvider, Provider
 
 
 def test_no_return_annotation():

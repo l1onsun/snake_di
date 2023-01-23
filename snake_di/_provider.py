@@ -13,16 +13,16 @@ from typing import (
     overload,
 )
 
-from pure_di._container import Container, _PrivateContainer
-from pure_di._factory import _AsyncFactory, _SyncFactory
-from pure_di._factory_group import (
+from snake_di._container import Container, _PrivateContainer
+from snake_di._factory import _AsyncFactory, _SyncFactory
+from snake_di._factory_group import (
     _AsyncFactoryGroup,
     _BaseFactoryGroup,
     _FactoryType,
     _SyncFactoryGroup,
 )
-from pure_di._types import Service, _Empty
-from pure_di.utils import get_generic_first_type
+from snake_di._types import Service, _Empty
+from snake_di.utils import get_generic_first_type
 
 _FactoryGroupType = TypeVar("_FactoryGroupType", bound=_BaseFactoryGroup)
 

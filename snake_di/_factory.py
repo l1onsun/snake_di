@@ -3,8 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import AsyncContextManager, Callable, ContextManager, Generic, Type
 
-from pure_di._inspector import _Inspector
-from pure_di._types import Service, TService, _Empty
+from snake_di._inspector import _Inspector
+from snake_di._types import Service, TService, _Empty
 
 
 @dataclass

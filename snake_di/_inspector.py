@@ -13,7 +13,7 @@ from typing import (
     Type,
 )
 
-from pure_di._types import Service, TService
+from snake_di._types import Service, TService
 
 
 @dataclass

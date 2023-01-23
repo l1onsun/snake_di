@@ -9,7 +9,7 @@ from example.services import (
     Settings,
     UserManager,
 )
-from pure_di import AsyncProvider, Container, Provider
+from snake_di import AsyncProvider, Container, Provider
 
 pytestmark = pytest.mark.anyio
 

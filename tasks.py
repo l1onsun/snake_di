@@ -3,7 +3,7 @@ from invoke import task
 
 @task
 def coverage_test(c):
-    c.run("pytest --cov=pure_di/ tests")
+    c.run("pytest --cov=snake_di/ tests")
 
 
 @task

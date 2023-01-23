@@ -6,9 +6,9 @@ from contextlib import asynccontextmanager, contextmanager
 from dataclasses import dataclass
 from typing import AsyncIterator, Callable, Iterator, Optional, Type
 
-from pure_di._factory import _AsyncFactory, _BaseFactory, _SyncFactory
-from pure_di._service_dict import ServiceDict
-from pure_di._types import Service, TService
+from snake_di._factory import _AsyncFactory, _BaseFactory, _SyncFactory
+from snake_di._service_dict import ServiceDict
+from snake_di._types import Service, TService
 
 
 class _PrivateContainer(ServiceDict[Service]):

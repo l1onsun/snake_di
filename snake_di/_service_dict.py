@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Generic, Type, TypeVar
 
 from typing_extensions import Self
 
-from pure_di._types import Service
+from snake_di._types import Service
 
 ServiceDictValue = TypeVar("ServiceDictValue")
 
