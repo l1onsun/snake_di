@@ -4,23 +4,29 @@
 ![python](https://img.shields.io/pypi/pyversions/snake-di.svg?color=%2334D058)
 
 **Source Code**: https://github.com/lionsoon/snake_di  
+
 **Features**:
 * Lightweight - no external dependencies (only `typing_extensions`)
-  * Based on type annotations - no configuration required, less boilerplate
-  * Overridable - simple and flexible override system
-  * Pytest integration - writing unit tests was never so easy!
-  * `yeild` powered - just `yeild` your component and then write closing steps
-  * `async` support - able to work with `async` resources
+* Based on type annotations - no configuration required, less boilerplate
+* Overridable - simple and flexible override system
+* Pytest integration - writing unit tests was never so easy!
+* `yeild` powered - just `yeild` your component and then write closing steps
+* `async` support - able to work with `async` resources
 
 ### Install
 ```commandline
 pip install snake-di
 ```
 
-### Quick examples
-```python
-# file_manager.py
+### ToDo
+- [ ] Documentation  
+- [ ] Selective builds - allow build only necessary components  
+- [ ] More helpful exception messages  
+- [ ] Scopes - reuse factories for different app configurations  
 
+### Quick example
+`file_manager.py`
+```python
 @dataclass
 class FileManager:
     opened_file: typing.TextIO
@@ -32,9 +38,8 @@ class FileManager:
 class Settings:
     file_name: str
 ```
+`provider.py`
 ```python
-# provider.py
-
 from snake_di import Provider
 
 provider = Provider()
@@ -52,9 +57,8 @@ def provide_file(settings: Settings) -> TextIO:
 def provide_file_manager(opened_file: TextIO) -> FileManager:
     return FileManager(opened_file)
 ```
+`main.py`
 ```python
-# main.py
-
 def main():
     with provider.build() as container:
         assert container.keys() == {Settings, TextIO, FileManager}
@@ -64,10 +68,8 @@ def main():
         assert container[TextIO].closed is False
     assert container[TextIO].closed is True
 ```
-
+Override example - Multiple providers: 
 ```python
-# override example
-
 @Provider.from_factory
 def change_settings() -> Settings:
     return Settings(file_name="other.txt")
@@ -84,9 +86,9 @@ def main():
         assert container[Settings].file_name = "other.txt"
         assert type(container[FileManager].opened_file) is unittest.mock.Mock
 ```
-
+Integration with `pytest` example:
 ```python
-# use with pytest example
+from snake_di.pytest import pytest_provide
 
 @pytest.fixture
 def any_usual_fixture():
@@ -101,6 +103,7 @@ def test_with_mocked_file(
     assert type(mocked_file) is unittest.mock.Mock
     assert file_manager.opened_file == mocked_file
 ```
+`Container.partial_solve()` example
 ```python
 # container.partial_solve example
 def handle_data(file_manager: FileManager, settings: Settings, data: str):
