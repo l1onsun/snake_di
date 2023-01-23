@@ -22,7 +22,7 @@ from snake_di._factory_group import (
     _SyncFactoryGroup,
 )
 from snake_di._types import Service, _Empty
-from snake_di.utils import get_generic_first_type
+from snake_di._utils import get_generic_first_type
 
 _FactoryGroupType = TypeVar("_FactoryGroupType", bound=_BaseFactoryGroup)
 

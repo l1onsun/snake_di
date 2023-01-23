@@ -1,7 +1,7 @@
 import pytest
 
-from example.factories import async_provider, provider
-from example.services import (
+from examples.test_example.factories import async_provider, provider
+from examples.test_example.services import (
     AsyncDatabase,
     AsyncDatabaseEngine,
     Database,

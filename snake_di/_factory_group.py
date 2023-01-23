@@ -7,7 +7,7 @@ from typing_extensions import Self
 from snake_di._factory import _AsyncFactory, _BaseFactory, _SyncFactory
 from snake_di._service_dict import ServiceDict
 from snake_di._types import Service, _Empty
-from snake_di.utils import get_generic_first_type
+from snake_di._utils import get_generic_first_type
 
 _FactoryType = TypeVar("_FactoryType", bound=_BaseFactory)
 

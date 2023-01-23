@@ -20,7 +20,7 @@ dynamic = ["version", "description"]
 dependencies = ["typing_extensions"]
 
 [project.urls]
-Home = "https://github.com/lionsoon/light_di"
+Github = "https://github.com/lionsoon/snake_di"
 
 
 [tool.coverage.report]

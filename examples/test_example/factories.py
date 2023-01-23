@@ -1,6 +1,6 @@
 from typing import AsyncIterator, Iterator
 
-from example.services import (
+from examples.test_example.services import (
     AsyncDatabase,
     AsyncDatabaseEngine,
     Database,
