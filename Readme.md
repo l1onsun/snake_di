@@ -18,6 +18,14 @@
 pip install snake-di
 ```
 
+### ToDo
+- [ ] Documentation
+- [ ] Pytest fixtures support
+- [ ] Selective builds - allow build only necessary components  
+- [ ] More helpful exception messages  
+- [ ] Scopes - reuse factories for different app configurations  
+
+
 ### Quick example
 `file_manager.py`
 ```python
@@ -107,9 +115,3 @@ def main():
         handle_data_solved = container.partial_solve(handle_data)
         handle_data_solved(data="data")
 ```
-
-### ToDo
-- [ ] Documentation  
-- [ ] Selective builds - allow build only necessary components  
-- [ ] More helpful exception messages  
-- [ ] Scopes - reuse factories for different app configurations  
