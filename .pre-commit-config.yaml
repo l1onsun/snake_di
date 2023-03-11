@@ -7,12 +7,12 @@ repos:
       - id: check-merge-conflict
 
   - repo: https://github.com/psf/black
-    rev: '22.12.0'
+    rev: '23.1.0'
     hooks:
       - id: black
 
   - repo: https://github.com/PyCQA/isort
-    rev: '5.11.4'
+    rev: '5.12.0'
     hooks:
       - id: isort
         args:
@@ -44,6 +44,6 @@ repos:
         files: requirements.txt
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v0.991'  # Use the sha / tag you want to point at
+    rev: 'v1.1.1'  # Use the sha / tag you want to point at
     hooks:
       - id: mypy

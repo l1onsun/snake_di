@@ -20,8 +20,8 @@ def test_no_return_annotation():
 def test_cant_convert_to_factory():
     with pytest.raises(TypeError):
         # noinspection PyTypeChecker
-        Provider.from_factory(3)
+        Provider.from_factory(3)  # type: ignore[call-overload]
 
     with pytest.raises(TypeError):
         # noinspection PyTypeChecker
-        AsyncProvider.from_factory(3)
+        AsyncProvider.from_factory(3)  # type: ignore[call-overload]

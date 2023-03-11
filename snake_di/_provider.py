@@ -13,6 +13,8 @@ from typing import (
     overload,
 )
 
+from typing_extensions import Self
+
 from snake_di._container import Container, _PrivateContainer
 from snake_di._factory import _AsyncFactory, _SyncFactory
 from snake_di._factory_group import (
@@ -38,9 +40,7 @@ class _BaseProvider(Generic[_FactoryGroupType, _FactoryType]):
         return cls(factory_group_type({}), container)
 
     @classmethod
-    def from_dict(
-        cls, service_dict: dict[Type[Service], Service]
-    ) -> _BaseProvider:  # Self
+    def from_dict(cls, service_dict: dict[Type[Service], Service]) -> Self:
         return cls.from_container(_PrivateContainer(service_dict))
 
     @classmethod
@@ -49,7 +49,7 @@ class _BaseProvider(Generic[_FactoryGroupType, _FactoryType]):
         cls,
         *,
         service_type: Type[Service] | _Empty = _Empty.empty,
-    ) -> Callable[..., _BaseProvider]:  # Self
+    ) -> Callable[..., Self]:
         ...
 
     @classmethod
@@ -59,7 +59,7 @@ class _BaseProvider(Generic[_FactoryGroupType, _FactoryType]):
         initial_callable: Callable,
         *,
         service_type: Type[Service] | _Empty = _Empty.empty,
-    ) -> _BaseProvider:
+    ) -> Self:
         ...
 
     @classmethod
