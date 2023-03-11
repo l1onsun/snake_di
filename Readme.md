@@ -1,9 +1,9 @@
 # Snake DI
-![test](https://github.com/lionsoon/snake_di/actions/workflows/nox-test.yml/badge.svg)
+![test](https://github.com/l1onsun/snake_di/actions/workflows/nox-test.yml/badge.svg)
 ![pypi](https://img.shields.io/pypi/v/snake-di?color=%2334D058)
 ![python](https://img.shields.io/pypi/pyversions/snake-di.svg?color=%2334D058)
 
-**Source Code**: https://github.com/lionsoon/snake_di  
+**Source Code**: https://github.com/l1onsun/snake_di  
 
 **Features**:
 * Lightweight - no external dependencies (only `typing_extensions`)

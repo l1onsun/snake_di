@@ -20,7 +20,7 @@ dynamic = ["version", "description"]
 dependencies = ["typing_extensions"]
 
 [project.urls]
-Github = "https://github.com/lionsoon/snake_di"
+Github = "https://github.com/l1onsun/snake_di"
 
 
 [tool.coverage.report]
@@ -31,3 +31,4 @@ target-version = ['py311']
 
 [tool.mypy]
 python_version = "3.11"
+check_untyped_defs = true
