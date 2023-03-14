@@ -1,6 +1,7 @@
 from typing import AsyncIterator, Iterator
 
-from examples.test_example.services import (
+from snake_di import AsyncProvider, Provider
+from tests.app.services import (
     AsyncDatabase,
     AsyncDatabaseEngine,
     Database,
@@ -8,7 +9,6 @@ from examples.test_example.services import (
     Settings,
     UserManager,
 )
-from snake_di import AsyncProvider, Provider
 
 provider = Provider()
 

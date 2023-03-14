@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# Allow files and folders with a pattern starting with !
+!snake_di
+!tests
+!requirements
+!tasks.py
+!noxfile.py
+!pyproject.toml
+!.pre-commit-config.yaml
+!Readme.md
+!LICENSE
