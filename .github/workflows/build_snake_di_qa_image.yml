@@ -1,4 +1,4 @@
-name: Build snake_di QA images
+name: Build snake_di QA image
 on: [ push ]
 jobs:
   build-qa:

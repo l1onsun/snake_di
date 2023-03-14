@@ -13,13 +13,14 @@ def coverage_test(c):
 
 @task
 def coverage_report(c):
-    c.run("coverage report -m")
+    c.run("coverage report -m --fail-under=100")
 
 
 @task
 def compile_requirements(c):
+    env = 'CUSTOM_COMPILE_COMMAND="invoke compile-requirements"'
     for req in ["requirements/dev-requirements", "requirements/nox-requirements"]:
-        c.run(f"pip-compile {req}.in -o {req}.txt")
+        c.run(f"{env} pip-compile {req}.in -o {req}.txt")
 
 
 @task

@@ -1,0 +1,17 @@
+name: Coverage test
+on:
+  workflow_run:
+    workflows: ["Build snake_di QA image"]
+    types:
+      - completed
+
+jobs:
+  build-qa:
+    runs-on: ubuntu-latest
+    container:
+      image: l1onsun/snake_di_qa:${{ github.sha }}
+    steps:
+      - name: Coverage Test
+        run: invoke coverage-test
+      - name: Coverage Report
+        run: invoke coverage-report
