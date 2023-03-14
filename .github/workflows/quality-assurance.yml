@@ -1,7 +1,7 @@
-name: Build snake_di QA image
+name: Quality Assurance
 on: [ push ]
 jobs:
-  build-qa:
+  build-qa-image:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Docker Buildx
@@ -18,3 +18,15 @@ jobs:
         with:
           push: true
           tags: "l1onsun/snake_di_qa:${{ github.sha }}"
+
+  coverage:
+    needs: build-qa-image
+    runs-on: ubuntu-latest
+    container:
+      image: l1onsun/snake_di_qa:${{ github.sha }}
+    steps:
+      - name: Coverage Test
+        run: invoke coverage-test
+
+      - name: Coverage Report
+        run: invoke coverage-report
