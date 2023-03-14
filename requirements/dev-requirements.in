@@ -1,0 +1,10 @@
+pytest
+anyio
+trio
+
+flit
+invoke
+pytest-coverage
+nox
+pip-tools
+pre-commit

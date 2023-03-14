@@ -1,8 +1,8 @@
 import pytest
 
-from examples.test_example.factories import async_provider, provider
-from examples.test_example.services import Settings, UserManager
 from snake_di.pytest import pytest_provide, pytest_provide_async
+from tests.app.factories import async_provider, provider
+from tests.app.services import Settings, UserManager
 from tests.conftest import ASYNC_FIXTURE_VALUE, SYNC_FIXTURE_VALUE
 
 

@@ -1,7 +1,8 @@
 import pytest
 
-from examples.test_example.factories import async_provider, provider
-from examples.test_example.services import (
+from snake_di import AsyncProvider, Container, Provider
+from tests.app.factories import async_provider, provider
+from tests.app.services import (
     AsyncDatabase,
     AsyncDatabaseEngine,
     Database,
@@ -9,7 +10,6 @@ from examples.test_example.services import (
     Settings,
     UserManager,
 )
-from snake_di import AsyncProvider, Container, Provider
 
 pytestmark = pytest.mark.anyio
 
