@@ -1,10 +1,9 @@
-pytest
-anyio
-trio
+-r nox-requirements.in
 
 flit
 invoke
-pytest-coverage
+pytest-cov
 nox
 pip-tools
 pre-commit
+typing-extensions
