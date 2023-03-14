@@ -2,8 +2,12 @@ import tomllib
 
 from invoke import task
 
-with open("local/config.toml", "rb") as f:
-    config = tomllib.load(f)
+# ToDo: find cleaner way to work with secrets
+try:
+    with open("local/config.toml", "rb") as f:
+        config = tomllib.load(f)
+except FileNotFoundError:
+    config = {}
 
 
 @task

@@ -18,12 +18,17 @@ jobs:
         with:
           push: true
           tags: "l1onsun/snake_di_qa:${{ github.sha }}"
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   coverage:
     needs: build-qa-image
     runs-on: ubuntu-latest
-    container:
-      image: l1onsun/snake_di_qa:${{ github.sha }}
+    container: l1onsun/snake_di_qa:${{ github.sha }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: /snake_di_qa
     steps:
       - name: Coverage Test
         run: invoke coverage-test
