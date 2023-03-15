@@ -1,5 +1,5 @@
 # Snake DI
-![test](https://github.com/l1onsun/snake_di/actions/workflows/nox-test.yml/badge.svg)
+![test](https://github.com/l1onsun/snake_di/actions/workflows/quality-assurance.yml/badge.svg)
 [![coverage](https://img.shields.io/badge/coverage-100%25-%2334D058)](https://github.com/l1onsun/snake_di/actions/workflows/quality-assurance.yml)
 ![pypi](https://img.shields.io/pypi/v/snake-di?color=%2334D058)
 ![python](https://img.shields.io/pypi/pyversions/snake-di.svg?color=%2334D058)
