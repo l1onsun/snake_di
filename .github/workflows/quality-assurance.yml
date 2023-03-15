@@ -35,3 +35,16 @@ jobs:
 
       - name: Coverage Report
         run: invoke coverage-report
+
+
+  test-against-different-python-versions:
+    needs: build-qa-image
+    runs-on: ubuntu-latest
+    container: l1onsun/snake_di_qa:${{ github.sha }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: /snake_di_qa
+    steps:
+      - name: Nox Test
+        run: nox
