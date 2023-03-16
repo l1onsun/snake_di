@@ -34,8 +34,12 @@ jobs:
         shell: bash
         working-directory: /snake_di_qa
     steps:
+      - name: Who am i
+        run: whoami
+      - name: My home dir
+        run: ls -a ~
       - name: Run pre-commit
-        run: pre-commit run -a
+        run: PRE_COMMIT_HOME=/root/.cache/pre-commit pre-commit run -a
 
   test-and-coverage:
     needs: build-qa-image
