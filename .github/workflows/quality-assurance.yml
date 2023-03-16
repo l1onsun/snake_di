@@ -17,7 +17,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: "l1onsun/snake_di_qa:${{ github.sha }}"
+          tags: |
+            l1onsun/snake_di_qa:${{ github.sha }}
+            l1onsun/snake_di_qa:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
