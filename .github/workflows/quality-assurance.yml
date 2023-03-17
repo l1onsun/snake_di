@@ -26,18 +26,12 @@ jobs:
   pre-commit-check:
     needs: build-qa-image
     runs-on: ubuntu-latest
-    container:
-      image: l1onsun/snake_di_qa:${{ github.sha }}
-      options: --user root
+    container: l1onsun/snake_di_qa:${{ github.sha }}
     defaults:
       run:
         shell: bash
         working-directory: /snake_di_qa
     steps:
-      - name: Who am i
-        run: whoami
-      - name: My home dir
-        run: ls -a ~
       - name: Run pre-commit
         run: PRE_COMMIT_HOME=/root/.cache/pre-commit pre-commit run -a
 
