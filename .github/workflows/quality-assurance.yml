@@ -17,11 +17,25 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: "l1onsun/snake_di_qa:${{ github.sha }}"
+          tags: |
+            l1onsun/snake_di_qa:${{ github.sha }}
+            l1onsun/snake_di_qa:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  coverage:
+  pre-commit-check:
+    needs: build-qa-image
+    runs-on: ubuntu-latest
+    container: l1onsun/snake_di_qa:${{ github.sha }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: /snake_di_qa
+    steps:
+      - name: Run pre-commit
+        run: PRE_COMMIT_HOME=/root/.cache/pre-commit pre-commit run -a
+
+  test-and-coverage:
     needs: build-qa-image
     runs-on: ubuntu-latest
     container: l1onsun/snake_di_qa:${{ github.sha }}
@@ -36,8 +50,7 @@ jobs:
       - name: Coverage Report
         run: invoke coverage-report
 
-
-  test-against-different-python-versions:
+  test-different-python-versions:
     needs: build-qa-image
     runs-on: ubuntu-latest
     container: l1onsun/snake_di_qa:${{ github.sha }}
