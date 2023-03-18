@@ -47,3 +47,23 @@ def push_multipy(c):
 @task
 def build_qa(c):
     c.run("docker buildx build . -t l1onsun/snake_di_qa")
+
+
+@task
+def pypi_check(_):
+    import requests
+
+    from snake_di import __version__
+
+    result = requests.get("https://pypi.python.org/pypi/snake_di/json")
+    assert (
+        __version__ not in result.json()["releases"].keys()
+    ), "Version already published. Version dump required!"
+
+
+@task(pre=[pypi_check])
+def pypi_publish(c):
+    username = config["flit"]["username"]
+    password = config["flit"]["password"]
+    env = f"FLIT_USERNAME={username} FLIT_PASSWORD={password}"
+    c.run(f"{env} flit publish")

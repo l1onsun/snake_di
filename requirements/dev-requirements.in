@@ -1,9 +1,10 @@
 -r nox-requirements.in
 
+typing-extensions
+
 flit
 invoke
 pytest-cov
 nox
 pip-tools
 pre-commit
-typing-extensions
