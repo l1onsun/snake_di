@@ -84,6 +84,8 @@ jobs:
         shell: bash
         working-directory: /snake_di_qa
     steps:
+      - name: Remove git
+        run: rm -r .git
       - name: Publish version
         run: flit publish
         env:
