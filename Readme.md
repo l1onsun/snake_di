@@ -19,7 +19,7 @@
 pip install snake-di
 ```
 
-### ToDo
+### 1.0.0 Roadmap
 - [ ] Documentation
 - [ ] Pytest fixtures support
 - [ ] Selective builds - allow build only necessary components  
