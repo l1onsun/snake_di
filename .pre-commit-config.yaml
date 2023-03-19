@@ -41,9 +41,10 @@ repos:
     hooks:
       - id: python-safety-dependencies-check
         stages: [manual]
-        files: requirements.txt
+        files: requirements/dev-requirements.txt
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: 'v1.1.1'  # Use the sha / tag you want to point at
     hooks:
       - id: mypy
+        additional_dependencies: ['types-requests']

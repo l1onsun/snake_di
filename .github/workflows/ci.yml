@@ -1,4 +1,4 @@
-name: Quality Assurance
+name: ci
 on: [ push ]
 jobs:
   build-qa-image:
@@ -61,3 +61,31 @@ jobs:
     steps:
       - name: Nox Test
         run: nox
+
+  check-version-bump:
+    needs: build-qa-image
+    runs-on: ubuntu-latest
+    container: l1onsun/snake_di_qa:${{ github.sha }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: /snake_di_qa
+    steps:
+      - name: Check version
+        run: invoke pypi-check
+
+  publish-new-version:
+    if: github.ref == 'refs/heads/master'
+    needs: build-qa-image
+    runs-on: ubuntu-latest
+    container: l1onsun/snake_di_qa:${{ github.sha }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: /snake_di_qa
+    steps:
+      - name: Publish version
+        run: flit publish
+        env:
+          FLIT_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          FLIT_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
