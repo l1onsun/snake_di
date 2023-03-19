@@ -1,7 +1,6 @@
 # Snake DI
 ![ci](https://github.com/l1onsun/snake_di/actions/workflows/ci.yml/badge.svg)
-[![coverage](https://img.shields.io/badge/coverage-100%25-%2334D058)]
-(https://github.com/l1onsun/snake_di/actions/workflows/quality-assurance.yml)
+[![coverage](https://img.shields.io/badge/coverage-100%25-%2334D058)](https://github.com/l1onsun/snake_di/actions/workflows/quality-assurance.yml)
 ![pypi](https://img.shields.io/pypi/v/snake-di?color=%2334D058)
 ![python](https://img.shields.io/pypi/pyversions/snake-di.svg?color=%2334D058)
 
