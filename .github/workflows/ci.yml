@@ -76,7 +76,13 @@ jobs:
 
   publish-new-version:
     if: github.ref == 'refs/heads/master'
-    needs: build-qa-image
+    needs: [
+      build-qa-image,
+      pre-commit-check,
+      test-and-coverage,
+      test-different-python-versions,
+      check-version-bump
+    ]
     runs-on: ubuntu-latest
     container: l1onsun/snake_di_qa:${{ github.sha }}
     defaults:
